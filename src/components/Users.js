@@ -44,10 +44,6 @@ function Users() {
     const [modalInsert, setModalInsert] = useState(false);
     const [modalEdit, setModalEdit] = useState(false);
     const [modalDelete, setModalDelete] = useState(false);
-    const [pagination, setPagination] = useState();
-    const [page, setPage] = useState(2);
-    const [rowsPerPage, setRowsPerPage] = useState(10);
-
     const [usrSelect, setUsrSelect] = useState({
         first_name: '',
         last_name: '',
@@ -65,20 +61,10 @@ function Users() {
     const getUsers = async () => {
         await axios.get(baseUrl)
             .then(response => {
-                setPagination(response.data)
                 setUsers(response.data.data);
             })
     }
 
-    
-    const handleChangePage = (event, newPage) => {
-        setPage(newPage);
-      };
-    
-      const handleChangeRowsPerPage = (event) => {
-        setRowsPerPage(parseInt(event.target.value, 10));
-        setPage(0);
-      };
       
     const postUser = async () => {
         await axios.post(baseUrl, usrSelect)
@@ -215,14 +201,6 @@ function Users() {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <TablePagination
-                component="div"
-                count={100}
-                page={page}
-                onPageChange={handleChangePage}
-                rowsPerPage={rowsPerPage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-            />
             <Modal
                 open={modalInsert}
                 onClose={handleModalInsert}>
