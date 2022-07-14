@@ -5,7 +5,6 @@ import { Table, TableContainer, TableHead, TableCell, TableBody, TableRow, Modal
 import { Edit, Delete, Add } from '@material-ui/icons';
 
 
-
 const baseUrl = 'https://reqres.in/api/users/'
 
 const useStyles = makeStyles((theme) => ({
@@ -27,10 +26,9 @@ const useStyles = makeStyles((theme) => ({
         width: '100%'
     },
     button: {
-        backgroundColor: "#4caf50",
+        backgroundColor: "#3E5F8A",
         color: "#c8e6c9",
-        color: "black",
-        borderRadius: "100%",
+        borderRadius: "20%",
         cursor: "pointer",
     },
     pagination: {
@@ -67,7 +65,6 @@ function Users() {
     const getUsers = async () => {
         await axios.get(baseUrl)
             .then(response => {
-                console.log(response.data)
                 setPagination(response.data)
                 setUsers(response.data.data);
             })
@@ -189,7 +186,7 @@ function Users() {
     return (
         <div className="App" style={{ marginLeft: 50, marginRight: 50, marginTop: 20 }}>
             <div style={{ textAlign: "right" }}>
-                <Button variant="contained" color="success" className={styles.button} onClick={() => handleModalInsert()}><Add></Add></Button>
+                <Button variant="contained" backgroundColor="#3E5F8A" className={styles.button} onClick={() => handleModalInsert()}><Add></Add></Button>
             </div>
             <TableContainer>
                 <Table>

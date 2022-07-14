@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px",
     marginLeft: theme.spacing(1),
     "&:hover": {
-      color: "yellow",
+      color: "",
       borderBottom: "1px solid white",
     },
   },
@@ -34,13 +34,18 @@ function Navbar() {
 
   return (
     <AppBar 
-    style={{backgroundColor:"#FF8000"}}
+    style={{backgroundColor:"#252850"}}
     position="static">
       <CssBaseline />
       <Toolbar>
         <Typography variant="h5" className={classes.logo}>
           Fligoo Test
         </Typography>
+        <div className={classes.navlinks}>
+            <Link to="/" className={classes.link}>
+              Home
+            </Link>
+          </div>
           <div className={classes.navlinks}>
             <Link to="/user" className={classes.link}>
               User
